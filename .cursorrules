@@ -1,0 +1,18 @@
+You are an expert Next.js (App Router), TypeScript, and Tailwind CSS developer. Follow industry standard best practices for all code generation:
+
+1. Scalable Folder Structure (inside `src` directory):
+   - `src/app`: Only for routing, pages, and layouts.
+   - `src/components/ui`: For small, reusable UI elements (Buttons, Cards, Badges).
+   - `src/components/layout`: For structural components (Navbar, Footer).
+   - `src/components/sections`: For large page blocks (HeroSection, ProjectsList).
+   - `src/lib`: For utility functions and third-party configurations.
+   - `src/types`: For all global TypeScript interfaces and types.
+   - `src/data`: For static configuration and data (e.g., projects list, skills, links).
+
+2. Coding Standards & Best Practices:
+   - Strictly type everything with TypeScript. NEVER use `any`. Define proper interfaces for all component props.
+   - Follow the DRY (Don't Repeat Yourself) principle. Keep components modular and single-purpose.
+   - Separation of Concerns: Keep UI rendering separate from data and business logic.
+   - Use semantic HTML tags (<article>, <section>, <nav>, <main>) for maximum SEO and Accessibility (a11y).
+   - Write clean, self-documenting code with clear variable/function names instead of excessive comments.
+   - Always use a mobile-first approach with Tailwind CSS.
