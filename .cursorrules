@@ -22,3 +22,7 @@ You are an expert Next.js (App Router), TypeScript, and Tailwind CSS developer. 
    - Always extract static data, navigation links, profile details, and repeated content into the `src/data/` directory using the Barrel Pattern.
    - Always build highly reusable, modular UI components (e.g., Buttons, Cards, Badges) in `src/components/ui/` before using them in larger section components.
    - Ensure complete Separation of Concerns: UI components must only handle rendering and styling, while data must be imported from the respective constant files in `src/data/`.
+
+4. TypeScript Interfaces & Types Handling:
+   - Global data models (e.g., Project, SkillCategory, Article) MUST be placed and imported from `src/types/index.ts`.
+   - Component-specific Prop interfaces (e.g., `ButtonProps`, `ProjectCardProps`) MUST remain inside the specific component file, right above the component definition.
