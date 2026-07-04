@@ -16,3 +16,13 @@ You are an expert Next.js (App Router), TypeScript, and Tailwind CSS developer. 
    - Use semantic HTML tags (<article>, <section>, <nav>, <main>) for maximum SEO and Accessibility (a11y).
    - Write clean, self-documenting code with clear variable/function names instead of excessive comments.
    - Always use a mobile-first approach with Tailwind CSS.
+
+3. Data & Component Separation (STRICT RULE):
+   - NEVER hardcode lists, arrays, or frequently used data directly inside UI components.
+   - Always extract static data, navigation links, profile details, and repeated content into the `src/data/` directory using the Barrel Pattern.
+   - Always build highly reusable, modular UI components (e.g., Buttons, Cards, Badges) in `src/components/ui/` before using them in larger section components.
+   - Ensure complete Separation of Concerns: UI components must only handle rendering and styling, while data must be imported from the respective constant files in `src/data/`.
+
+4. TypeScript Interfaces & Types Handling:
+   - Global data models (e.g., Project, SkillCategory, Article) MUST be placed and imported from `src/types/index.ts`.
+   - Component-specific Prop interfaces (e.g., `ButtonProps`, `ProjectCardProps`) MUST remain inside the specific component file, right above the component definition.
