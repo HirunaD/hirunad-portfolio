@@ -30,7 +30,7 @@ const itemVariants = {
 export default function HeroSection() {
   return (
     <section
-      id="about"
+      id="hero"
       className="flex flex-1 items-center bg-zinc-50 dark:bg-black"
       aria-labelledby="hero-heading"
     >
@@ -60,7 +60,7 @@ export default function HeroSection() {
             variants={itemVariants}
             className="max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400"
           >
-            {profileData.about}
+            {profileData.headline}
           </motion.p>
 
           <motion.div
@@ -70,8 +70,8 @@ export default function HeroSection() {
             <Button href="#projects" variant="primary" className="w-full sm:w-auto">
               View Projects
             </Button>
-            <Button href="#articles" variant="outline" className="w-full sm:w-auto">
-              Read Articles
+            <Button href="#contact" variant="outline" className="w-full sm:w-auto">
+              Get In Touch
             </Button>
           </motion.div>
         </motion.div>

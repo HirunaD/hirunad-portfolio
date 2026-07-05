@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { projectsData } from "../../data";
+import { projectsData, projectsSectionContent } from "../../data";
 import ProjectCard from "../ui/ProjectCard";
 
 const containerVariants = {
@@ -40,11 +40,10 @@ export default function ProjectsSection() {
             id="projects-heading"
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
           >
-            Projects
+            {projectsSectionContent.title}
           </h2>
           <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
-            A selection of work spanning full-stack development, monitoring
-            systems, and modern web applications.
+            {projectsSectionContent.description}
           </p>
         </div>
 

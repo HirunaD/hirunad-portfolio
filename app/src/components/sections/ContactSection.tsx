@@ -1,7 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { socialLinks } from "../../data";
+import {
+  contactSectionContent,
+  socialLinks,
+} from "../../data";
 import Button from "../ui/Button";
 import SocialIcon from "../ui/SocialIcon";
 
@@ -21,7 +24,9 @@ const socialLinkClasses =
   "inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50";
 
 const emailLink = socialLinks.find((link) => link.url.startsWith("mailto:"));
-const secondaryLinks = socialLinks.filter((link) => !link.url.startsWith("mailto:"));
+const secondaryLinks = socialLinks.filter(
+  (link) => !link.url.startsWith("mailto:"),
+);
 
 export default function ContactSection() {
   return (
@@ -41,13 +46,11 @@ export default function ContactSection() {
           id="contact-heading"
           className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
         >
-          Get In Touch
+          {contactSectionContent.title}
         </h2>
 
         <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-          Have a project in mind or want to connect? I&apos;m always open to
-          discussing new opportunities, collaborations, or just a friendly chat
-          about technology.
+          {contactSectionContent.description}
         </p>
 
         {emailLink && (

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skillsData } from "../../data";
+import { skillsData, skillsSectionContent } from "../../data";
 import SkillCategoryCard from "../ui/SkillCategoryCard";
 
 const containerVariants = {
@@ -40,16 +40,15 @@ export default function SkillsSection() {
             id="skills-heading"
             className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
           >
-            Skills
+            {skillsSectionContent.title}
           </h2>
           <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
-            Technologies and tools I use to build reliable, scalable
-            applications across the stack.
+            {skillsSectionContent.description}
           </p>
         </div>
 
         <motion.div
-          className="grid grid-cols-1 gap-6 lg:grid-cols-3"
+          className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
