@@ -8,17 +8,29 @@ const linkClasses =
   "inline-flex items-center gap-1.5 text-sm font-medium text-zinc-900 transition-colors hover:text-zinc-600 dark:text-zinc-50 dark:hover:text-zinc-300";
 
 export default function ArticleCard({ article }: ArticleCardProps) {
-  const { title, platform, link } = article;
+  const { title, description, platform, link, publishedAt } = article;
 
   return (
     <article className="group flex h-full flex-col rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950">
-      <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-        {platform}
-      </p>
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          {platform}
+        </p>
+        <time
+          dateTime={publishedAt}
+          className="shrink-0 text-xs text-zinc-500 dark:text-zinc-400"
+        >
+          {publishedAt}
+        </time>
+      </div>
 
-      <h3 className="mt-3 flex-1 text-lg font-semibold leading-snug tracking-tight text-zinc-900 transition-colors group-hover:text-zinc-700 dark:text-zinc-50 dark:group-hover:text-zinc-200">
+      <h3 className="mt-3 text-lg font-semibold leading-snug tracking-tight text-zinc-900 transition-colors group-hover:text-zinc-700 dark:text-zinc-50 dark:group-hover:text-zinc-200">
         {title}
       </h3>
+
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+        {description}
+      </p>
 
       <div className="mt-6 border-t border-zinc-100 pt-4 dark:border-zinc-800">
         <a

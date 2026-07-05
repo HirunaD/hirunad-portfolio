@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { profileData } from "../../data";
 import Button from "../ui/Button";
+import { resumeData } from "../../data/resume";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,7 +31,7 @@ const itemVariants = {
 export default function HeroSection() {
   return (
     <section
-      id="about"
+      id="hero"
       className="flex flex-1 items-center bg-zinc-50 dark:bg-black"
       aria-labelledby="hero-heading"
     >
@@ -60,18 +61,26 @@ export default function HeroSection() {
             variants={itemVariants}
             className="max-w-2xl text-lg leading-relaxed text-zinc-600 sm:text-xl dark:text-zinc-400"
           >
-            {profileData.about}
+            {profileData.headline}
           </motion.p>
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4"
+            className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4"
           >
             <Button href="#projects" variant="primary" className="w-full sm:w-auto">
               View Projects
             </Button>
-            <Button href="#articles" variant="outline" className="w-full sm:w-auto">
-              Read Articles
+            <Button
+              href={resumeData.href}
+              download={resumeData.download}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
+              {resumeData.label}
+            </Button>
+            <Button href="#contact" variant="outline" className="w-full sm:w-auto">
+              Get In Touch
             </Button>
           </motion.div>
         </motion.div>

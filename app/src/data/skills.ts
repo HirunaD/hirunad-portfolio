@@ -1,16 +1,48 @@
-import { SkillCategory } from '../types';
+import { SkillCategory } from "../types";
 
 export const skillsData: SkillCategory[] = [
   {
-    category: "Frontend",
-    skills: ["React", "Next.js", "Angular", "TypeScript", "Tailwind CSS", "Figma"]
+    category: "Programming Languages",
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Java",
+      "C#",
+      "C++",
+      "Haskell",
+    ],
   },
   {
-    category: "Backend",
-    skills: ["Node.js", "Express", ".NET Core", "Go", "Flask"]
+    category: "Frameworks & Libraries",
+    skills: [
+      "React.js",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "Tailwind CSS",
+      "MUI",
+      "REST APIs",
+    ],
   },
   {
-    category: "Databases & DevOps",
-    skills: ["MongoDB", "PostgreSQL", "Neo4j", "Docker", "Prometheus", "Grafana"]
-  }
+    category: "Database",
+    skills: ["MongoDB", "MySQL", "Neo4j"],
+  },
+  {
+    category: "DevOps",
+    skills: ["Docker", "Kubernetes"],
+  },
+  {
+    category: "Tooling",
+    skills: ["Git", "GitHub", "VS Code", "Jira"],
+  },
+  {
+    category: "Testing",
+    skills: ["Jest", "Selenium", "Mocha"],
+  },
+  {
+    category: "State Management",
+    skills: ["Redux Toolkit", "Zustand", "Easy-Peasy"],
+  },
 ];

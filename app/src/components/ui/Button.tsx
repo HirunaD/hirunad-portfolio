@@ -35,6 +35,17 @@ export type ButtonAsLinkProps = BaseButtonProps &
 
 export type ButtonProps = ButtonAsButtonProps | ButtonAsLinkProps;
 
+function shouldUseNativeAnchor(
+  href: string,
+  anchorProps: Omit<ButtonAsLinkProps, keyof BaseButtonProps | "href">,
+): boolean {
+  return (
+    href.startsWith("mailto:") ||
+    href.startsWith("http") ||
+    anchorProps.download !== undefined
+  );
+}
+
 function getButtonClasses(
   variant: ButtonVariant,
   className?: string,
@@ -56,12 +67,21 @@ export default function Button(props: ButtonProps) {
   const classes = getButtonClasses(variant, className);
 
   if (href !== undefined) {
+    const anchorProps = rest as Omit<
+      ButtonAsLinkProps,
+      keyof BaseButtonProps | "href"
+    >;
+
+    if (shouldUseNativeAnchor(href, anchorProps)) {
+      return (
+        <a href={href} className={classes} {...anchorProps}>
+          {children}
+        </a>
+      );
+    }
+
     return (
-      <Link
-        href={href}
-        className={classes}
-        {...(rest as Omit<ButtonAsLinkProps, keyof BaseButtonProps | "href">)}
-      >
+      <Link href={href} className={classes} {...anchorProps}>
         {children}
       </Link>
     );

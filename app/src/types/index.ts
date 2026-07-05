@@ -1,5 +1,3 @@
-// src/types/index.ts
-
 export interface Project {
   id: string;
   title: string;
@@ -18,8 +16,41 @@ export interface SkillCategory {
 export interface Article {
   id: string;
   title: string;
+  description: string;
   platform: string;
   link: string;
+  publishedAt: string;
+}
+
+export interface Experience {
+  id: string;
+  role: string;
+  company: string;
+  period: string;
+  description: string[];
+}
+
+export interface Education {
+  id: string;
+  degree: string;
+  institution: string;
+  period: string;
+  description?: string;
+}
+
+export type CertificationType = "certification" | "competition";
+
+export interface Certification {
+  id: string;
+  title: string;
+  issuer: string;
+  type: CertificationType;
+  year?: string;
+}
+
+export interface SectionContent {
+  title: string;
+  description: string;
 }
 
 export interface PortfolioData {
