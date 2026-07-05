@@ -7,6 +7,7 @@ import {
 } from "../../data";
 import Button from "../ui/Button";
 import SocialIcon from "../ui/SocialIcon";
+import { resumeData } from "../../data/resume";
 
 const fadeInVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -53,13 +54,21 @@ export default function ContactSection() {
           {contactSectionContent.description}
         </p>
 
-        {emailLink && (
-          <div className="mt-8">
-            <Button href={emailLink.url} variant="primary">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
+          {emailLink && (
+            <Button href={emailLink.url} variant="primary" className="w-full sm:w-auto">
               {emailLink.label}
             </Button>
-          </div>
-        )}
+          )}
+          <Button
+            href={resumeData.href}
+            download={resumeData.download}
+            variant="outline"
+            className="w-full sm:w-auto"
+          >
+            {resumeData.label}
+          </Button>
+        </div>
 
         {secondaryLinks.length > 0 && (
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6">

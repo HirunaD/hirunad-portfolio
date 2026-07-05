@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { profileData } from "../../data";
 import Button from "../ui/Button";
+import { resumeData } from "../../data/resume";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,10 +66,18 @@ export default function HeroSection() {
 
           <motion.div
             variants={itemVariants}
-            className="flex flex-col gap-3 pt-2 sm:flex-row sm:gap-4"
+            className="flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap sm:gap-4"
           >
             <Button href="#projects" variant="primary" className="w-full sm:w-auto">
               View Projects
+            </Button>
+            <Button
+              href={resumeData.href}
+              download={resumeData.download}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
+              {resumeData.label}
             </Button>
             <Button href="#contact" variant="outline" className="w-full sm:w-auto">
               Get In Touch
