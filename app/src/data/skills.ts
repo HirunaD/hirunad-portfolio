@@ -3,45 +3,46 @@ import { SkillCategory } from "../types";
 export const skillsData: SkillCategory[] = [
   {
     category: "Programming Languages",
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C", "C++", "SQL"],
+    skills: [
+      "JavaScript",
+      "TypeScript",
+      "Python",
+      "Java",
+      "C#",
+      "C++",
+      "Haskell",
+    ],
   },
   {
     category: "Frameworks & Libraries",
     skills: [
-      "React",
+      "React.js",
       "Next.js",
       "Node.js",
       "Express.js",
       "Tailwind CSS",
-      "Flask",
-      "FastAPI",
+      "MUI",
+      "REST APIs",
     ],
   },
   {
     category: "Database",
-    skills: ["MongoDB", "PostgreSQL", "MySQL", "Neo4j", "Firebase"],
+    skills: ["MongoDB", "MySQL", "Neo4j"],
   },
   {
     category: "DevOps",
-    skills: [
-      "Docker",
-      "CI/CD",
-      "GitHub Actions",
-      "Prometheus",
-      "Grafana",
-      "Kubernetes",
-    ],
+    skills: ["Docker", "Kubernetes"],
   },
   {
     category: "Tooling",
-    skills: ["Git", "Linux", "Postman", "VS Code", "Figma", "Trello"],
+    skills: ["Git", "GitHub", "VS Code", "Jira"],
   },
   {
     category: "Testing",
-    skills: ["Jest", "Mocha", "Unit Testing", "Integration Testing"],
+    skills: ["Jest", "Selenium", "Mocha"],
   },
   {
     category: "State Management",
-    skills: ["Redux", "Context API", "React Hooks", "Zustand"],
+    skills: ["Redux Toolkit", "Zustand", "Easy-Peasy"],
   },
 ];

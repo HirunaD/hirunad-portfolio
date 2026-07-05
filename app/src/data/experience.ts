@@ -7,9 +7,7 @@ export const experienceData: Experience[] = [
     company: "Tetherfi (Pvt) Ltd",
     period: "March 2026 - Present",
     description: [
-      "Contributing to full-stack web development using modern JavaScript and TypeScript technologies.",
-      "Building and maintaining scalable backend services and responsive frontend interfaces.",
-      "Collaborating with cross-functional teams to deliver production-ready software solutions.",
+      "Engineered and optimized a comprehensive PBX Administration UI, delivering an intuitive, highly responsive platform that streamlines complex telecommunications management and system monitoring workflows.",
     ],
   },
   {
@@ -18,9 +16,7 @@ export const experienceData: Experience[] = [
     company: "BotCalm (Pvt) Ltd",
     period: "July 2024 - November 2025",
     description: [
-      "Gained hands-on experience with large-scale software systems and real-time monitoring workflows.",
-      "Supported backend development, API integration, and incident handling in production environments.",
-      "Applied DevOps practices including Docker containerization and CI/CD pipeline awareness.",
+      "Engineered scalable, full-stack web applications using React.js, Next.js, and Node.js, collaborating with cross-functional teams to deliver secure, high-performing, and responsive user experiences.",
     ],
   },
   {
