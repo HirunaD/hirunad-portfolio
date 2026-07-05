@@ -16,8 +16,10 @@ export interface SkillCategory {
 export interface Article {
   id: string;
   title: string;
+  description: string;
   platform: string;
   link: string;
+  publishedAt: string;
 }
 
 export interface Experience {
