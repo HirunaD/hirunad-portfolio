@@ -1,5 +1,7 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { navLinks, profileData } from "../../data";
@@ -17,10 +19,26 @@ export default function Navbar() {
       >
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-zinc-900 transition-colors hover:text-zinc-600 dark:text-zinc-50 dark:hover:text-zinc-300"
+          className="group flex shrink-0 items-center"
           onClick={closeMenu}
+          aria-label={`${profileData.name} - Home`}
         >
-          {profileData.name}
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            whileHover={{ scale: 1.05, rotate: -2 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <Image
+              src="/logo.jpg"
+              alt={`${profileData.name} logo`}
+              width={60}
+              height={40}
+              unoptimized
+              priority
+              className="rounded-sm transition-[filter] duration-300 group-hover:drop-shadow-[0_0_12px_rgba(251,146,60,0.55)]"
+            />
+          </motion.div>
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
