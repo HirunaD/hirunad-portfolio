@@ -31,7 +31,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="bg-white py-16 dark:bg-black sm:py-24"
+      className="flex min-h-screen flex-col items-center justify-center bg-slate-900 py-12 sm:py-16"
       aria-labelledby="projects-heading"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">

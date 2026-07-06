@@ -30,7 +30,7 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="bg-white py-16 dark:bg-black sm:py-24"
+      className="flex min-h-screen flex-col items-center justify-center bg-slate-900 py-12 sm:py-16"
       aria-labelledby="about-heading"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -44,23 +44,23 @@ export default function AboutSection() {
           <motion.div variants={itemVariants} className="mb-8 text-center">
             <h2
               id="about-heading"
-              className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
+              className="text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl"
             >
               {aboutSectionContent.title}
             </h2>
-            <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
+            <p className="mt-3 text-lg text-zinc-400">
               {aboutSectionContent.description}
             </p>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="rounded-xl border border-zinc-200 bg-zinc-50 p-8 dark:border-zinc-800 dark:bg-zinc-950"
+            className="rounded-xl border border-slate-700/80 bg-slate-950/60 p-8 backdrop-blur-sm"
           >
-            <p className="text-sm font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            <p className="text-sm font-medium uppercase tracking-widest text-zinc-400">
               {profileData.role}
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-zinc-700 dark:text-zinc-300">
+            <p className="mt-4 text-lg leading-relaxed text-zinc-300">
               {profileData.about}
             </p>
           </motion.div>

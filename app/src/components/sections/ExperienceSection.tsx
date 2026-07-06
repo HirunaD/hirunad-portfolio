@@ -31,7 +31,7 @@ export default function ExperienceSection() {
   return (
     <section
       id="experience"
-      className="bg-zinc-50 py-16 dark:bg-zinc-950 sm:py-24"
+      className="flex min-h-screen flex-col items-center justify-center bg-slate-950 py-12 sm:py-16"
       aria-labelledby="experience-heading"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">

@@ -34,7 +34,7 @@ export default function CertificationsSection() {
   return (
     <section
       id="certifications"
-      className="bg-white py-16 dark:bg-black sm:py-24"
+      className="flex min-h-screen flex-col items-center justify-center bg-slate-950 py-12 sm:py-16"
       aria-labelledby="certifications-heading"
     >
       <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">

@@ -33,7 +33,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-zinc-50 py-16 dark:bg-zinc-950 sm:py-24"
+      className="flex min-h-screen flex-col items-center justify-center bg-slate-950 py-12 sm:py-16"
       aria-labelledby="contact-heading"
     >
       <motion.div
@@ -45,12 +45,12 @@ export default function ContactSection() {
       >
         <h2
           id="contact-heading"
-          className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
+          className="text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl"
         >
           {contactSectionContent.title}
         </h2>
 
-        <p className="mt-4 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 text-lg leading-relaxed text-zinc-300">
           {contactSectionContent.description}
         </p>
 
