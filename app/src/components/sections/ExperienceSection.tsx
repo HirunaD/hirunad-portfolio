@@ -2,68 +2,50 @@
 
 import { motion } from "framer-motion";
 import { experienceData, experienceSectionContent } from "../../data";
+import { fadeUpItem, staggerContainer, viewportOnce } from "../../lib/motion";
 import ExperienceCard from "../ui/ExperienceCard";
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.05,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
+import SectionHeading from "../ui/SectionHeading";
+import SectionShell from "../ui/SectionShell";
 
 export default function ExperienceSection() {
   return (
-    <section
-      id="experience"
-      className="bg-zinc-50 py-16 dark:bg-zinc-950 sm:py-24"
-      aria-labelledby="experience-heading"
-    >
-      <div className="mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-10 max-w-2xl">
-          <h2
-            id="experience-heading"
-            className="text-3xl font-bold tracking-tight text-zinc-900 sm:text-4xl dark:text-zinc-50"
-          >
-            {experienceSectionContent.title}
-          </h2>
-          <p className="mt-3 text-lg text-zinc-600 dark:text-zinc-400">
-            {experienceSectionContent.description}
-          </p>
+    <SectionShell id="experience" ariaLabelledBy="experience-heading" tone="slate-950">
+      <SectionHeading
+        id="experience-heading"
+        title={experienceSectionContent.title}
+        description={experienceSectionContent.description}
+      />
+
+      <div className="relative mx-auto max-w-3xl">
+        <div className="absolute bottom-0 left-0 top-0 w-px overflow-hidden" aria-hidden="true">
+          <motion.div
+            className="h-full w-full origin-top bg-linear-to-b from-amber-400 via-orange-500/50 to-amber-500/15"
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          />
+          <motion.div
+            className="absolute inset-0 bg-linear-to-b from-amber-300/50 via-orange-400/20 to-transparent"
+            animate={{ opacity: [0.15, 0.55, 0.15] }}
+            transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+          />
         </div>
 
         <motion.div
-          className="relative mx-auto max-w-3xl border-l border-zinc-200 dark:border-zinc-800"
-          variants={containerVariants}
+          className="flex flex-col gap-8 pl-8"
+          variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={viewportOnce}
         >
-          {experienceData.map((experience, index) => (
-            <motion.div key={experience.id} variants={itemVariants}>
-              <ExperienceCard
-                experience={experience}
-                isLast={index === experienceData.length - 1}
-              />
+          {experienceData.map((experience) => (
+            <motion.div key={experience.id} variants={fadeUpItem}>
+              <ExperienceCard experience={experience} />
             </motion.div>
           ))}
         </motion.div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

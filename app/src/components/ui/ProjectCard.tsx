@@ -1,61 +1,62 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { cardSpring, premiumCardClasses, premiumTagClasses } from "../../lib/motion";
 import { type Project } from "../../types";
+import { PremiumPrimaryButton, PremiumSecondaryButton } from "./PremiumButton";
 
 export interface ProjectCardProps {
   project: Project;
 }
 
-const linkClasses =
-  "inline-flex items-center text-sm font-medium text-zinc-700 transition-colors hover:text-zinc-900 dark:text-zinc-300 dark:hover:text-zinc-50";
-
 export default function ProjectCard({ project }: ProjectCardProps) {
   const { title, description, techStack, githubUrl, liveUrl } = project;
 
   return (
-    <article className="flex h-full flex-col rounded-xl border border-zinc-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md dark:border-zinc-800 dark:bg-zinc-950">
-      <h3 className="text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-        {title}
-      </h3>
+    <motion.article
+      className={`flex h-full flex-col ${premiumCardClasses}`}
+      whileHover={{ scale: 1.02 }}
+      transition={cardSpring}
+    >
+      <h3 className="text-lg font-semibold tracking-tight text-zinc-50">{title}</h3>
 
-      <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+      <p className="mt-3 flex-1 text-sm leading-relaxed text-zinc-400">
         {description}
       </p>
 
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies used">
         {techStack.map((tech) => (
           <li key={tech}>
-            <span className="inline-block rounded-full border border-zinc-200 bg-zinc-50 px-2.5 py-0.5 text-xs font-medium text-zinc-700 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300">
-              {tech}
-            </span>
+            <span className={premiumTagClasses}>{tech}</span>
           </li>
         ))}
       </ul>
 
       {(githubUrl ?? liveUrl) && (
-        <div className="mt-6 flex flex-wrap gap-4 border-t border-zinc-100 pt-4 dark:border-zinc-800">
+        <div className="mt-6 flex flex-wrap gap-3 border-t border-amber-500/15 pt-4">
           {githubUrl && (
-            <a
+            <PremiumSecondaryButton
               href={githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClasses}
+              size="compact"
+              showIcon
+              className="w-auto"
             >
               GitHub
               <span className="sr-only"> for {title}</span>
-            </a>
+            </PremiumSecondaryButton>
           )}
           {liveUrl && (
-            <a
+            <PremiumPrimaryButton
               href={liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={linkClasses}
+              size="compact"
+              className="w-auto"
             >
-              Live
-              <span className="sr-only"> demo for {title}</span>
-            </a>
+              Live Demo
+              <span className="sr-only"> for {title}</span>
+            </PremiumPrimaryButton>
           )}
         </div>
       )}
-    </article>
+    </motion.article>
   );
 }
