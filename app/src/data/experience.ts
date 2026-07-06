@@ -1,5 +1,11 @@
 import { Experience } from "../types";
 
+export const experienceCardConfig = {
+  cardHeightClass: "h-[250px]",
+  readMoreLabel: "Read more",
+  closeLabel: "Close",
+};
+
 export const experienceData: Experience[] = [
   {
     id: "e1",
