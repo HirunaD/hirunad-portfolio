@@ -1,28 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  contactSectionContent,
-  socialLinks,
-} from "../../data";
-import Button from "../ui/Button";
-import SocialIcon from "../ui/SocialIcon";
+import { contactSectionContent, socialLinks } from "../../data";
 import { resumeData } from "../../data/resume";
-
-const fadeInVariants = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-const socialLinkClasses =
-  "inline-flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-50";
+import { fadeUpItem, staggerContainer, viewportOnce } from "../../lib/motion";
+import {
+  PremiumPrimaryButton,
+  PremiumSecondaryButton,
+} from "../ui/PremiumButton";
+import SectionHeading from "../ui/SectionHeading";
+import SectionShell from "../ui/SectionShell";
+import SocialIcon from "../ui/SocialIcon";
 
 const emailLink = socialLinks.find((link) => link.url.startsWith("mailto:"));
 const secondaryLinks = socialLinks.filter(
@@ -31,62 +19,67 @@ const secondaryLinks = socialLinks.filter(
 
 export default function ContactSection() {
   return (
-    <section
+    <SectionShell
       id="contact"
-      className="flex min-h-screen flex-col items-center justify-center bg-slate-950 py-12 sm:py-16"
-      aria-labelledby="contact-heading"
+      ariaLabelledBy="contact-heading"
+      tone="slate-950"
+      contentClassName="mx-auto w-full max-w-2xl px-4 text-center sm:px-6 lg:px-8"
     >
       <motion.div
-        className="mx-auto w-full max-w-2xl px-4 text-center sm:px-6 lg:px-8"
-        variants={fadeInVariants}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-80px" }}
+        viewport={viewportOnce}
       >
-        <h2
+        <SectionHeading
           id="contact-heading"
-          className="text-3xl font-bold tracking-tight text-zinc-50 sm:text-4xl"
+          title={contactSectionContent.title}
+          description={contactSectionContent.description}
+          align="center"
+          className="mb-0"
+        />
+
+        <motion.div
+          variants={fadeUpItem}
+          className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
         >
-          {contactSectionContent.title}
-        </h2>
-
-        <p className="mt-4 text-lg leading-relaxed text-zinc-300">
-          {contactSectionContent.description}
-        </p>
-
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           {emailLink && (
-            <Button href={emailLink.url} variant="primary" className="w-full sm:w-auto">
+            <PremiumPrimaryButton
+              href={emailLink.url}
+              className="w-full sm:w-auto"
+            >
               {emailLink.label}
-            </Button>
+            </PremiumPrimaryButton>
           )}
-          <Button
+          <PremiumSecondaryButton
             href={resumeData.href}
             download={resumeData.download}
-            variant="outline"
             className="w-full sm:w-auto"
           >
             {resumeData.label}
-          </Button>
-        </div>
+          </PremiumSecondaryButton>
+        </motion.div>
 
         {secondaryLinks.length > 0 && (
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
+          <motion.div
+            variants={fadeUpItem}
+            className="mt-8 flex flex-wrap items-center justify-center gap-3"
+          >
             {secondaryLinks.map((link) => (
-              <a
+              <PremiumSecondaryButton
                 key={link.name}
                 href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={socialLinkClasses}
+                size="compact"
+                showIcon
+                className="w-auto"
               >
                 <SocialIcon name={link.name} />
                 {link.label}
-              </a>
+              </PremiumSecondaryButton>
             ))}
-          </div>
+          </motion.div>
         )}
       </motion.div>
-    </section>
+    </SectionShell>
   );
 }
