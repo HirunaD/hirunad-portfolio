@@ -1,5 +1,9 @@
 import { SkillCategory } from "../types";
 
+export const skillCardConfig = {
+  cardHeightClass: "h-[200px]",
+};
+
 export const skillsData: SkillCategory[] = [
   {
     category: "Programming Languages",

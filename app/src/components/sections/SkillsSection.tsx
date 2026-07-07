@@ -24,11 +24,7 @@ export default function SkillsSection() {
         viewport={viewportOnce}
       >
         {skillsData.map((skillCategory) => (
-          <motion.div
-            key={skillCategory.category}
-            variants={fadeUpItem}
-            className="h-full"
-          >
+          <motion.div key={skillCategory.category} variants={fadeUpItem} className="h-full">
             <SkillCategoryCard skillCategory={skillCategory} />
           </motion.div>
         ))}
