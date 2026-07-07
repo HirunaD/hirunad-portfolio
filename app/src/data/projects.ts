@@ -1,5 +1,12 @@
 import { Project } from "../types";
 
+export const projectCardConfig = {
+  cardHeightClass: "h-[430px]",
+  descriptionLineClampClass: "line-clamp-5",
+  readMoreLabel: "Read more",
+  closeLabel: "Close",
+};
+
 export const projectsData: Project[] = [
   {
     id: "p1",
