@@ -1,5 +1,9 @@
 import { Education } from "../types";
 
+export const educationCardConfig = {
+  cardHeightClass: "h-[200px]",
+};
+
 export const educationData: Education[] = [
   {
     id: "ed1",
