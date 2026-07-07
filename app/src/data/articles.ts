@@ -1,5 +1,11 @@
 import { Article } from "../types";
 
+export const articleCardConfig = {
+  cardHeightClass: "h-[320px]",
+  descriptionLineClampClass: "line-clamp-3",
+  readOnLabel: "Read on",
+};
+
 export const articlesData: Article[] = [
   {
     id: "a1",

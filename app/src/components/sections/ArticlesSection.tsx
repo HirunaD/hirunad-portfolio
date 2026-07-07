@@ -9,7 +9,7 @@ import SectionShell from "../ui/SectionShell";
 
 export default function ArticlesSection() {
   return (
-    <SectionShell id="articles" ariaLabelledBy="articles-heading" tone="slate-900">
+    <SectionShell id="articles" ariaLabelledBy="articles-heading" tone="slate-950">
       <SectionHeading
         id="articles-heading"
         title={articlesSectionContent.title}

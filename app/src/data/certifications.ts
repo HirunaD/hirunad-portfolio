@@ -1,5 +1,14 @@
 import { Certification } from "../types";
 
+export const certificationCardConfig = {
+  cardHeightClass: "h-[260px]",
+};
+
+export const certificationTypeLabels = {
+  certification: "Certification",
+  competition: "Competition",
+} as const;
+
 export const certificationsData: Certification[] = [
   {
     id: "c1",

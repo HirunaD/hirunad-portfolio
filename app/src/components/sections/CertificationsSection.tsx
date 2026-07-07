@@ -24,14 +24,14 @@ export default function CertificationsSection() {
       />
 
       <motion.div
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+        className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
         viewport={viewportOnce}
       >
         {certificationsData.map((certification) => (
-          <motion.div key={certification.id} variants={fadeUpItem}>
+          <motion.div key={certification.id} variants={fadeUpItem} className="h-full">
             <CertificationCard certification={certification} />
           </motion.div>
         ))}
